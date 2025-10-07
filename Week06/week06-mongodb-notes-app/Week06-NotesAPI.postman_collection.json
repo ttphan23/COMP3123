@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Week06 Notes API",
+    "_postman_id": "e1a1a6e2-8c62-4e59-a5c9-123456789abc",
+    "description": "CRUD API tests for COMP3123 Week06 MongoDB Notes App",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Note",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": {\n    \"noteTitle\": \"Sample Note Title\",\n    \"noteDescription\": \"Sample Note Description\",\n    \"priority\": \"HIGH\",\n    \"dateAdded\": \"07/Oct/2025\",\n    \"dateUpdated\": \"07/Oct/2025\"\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/notes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "notes"]
+        }
+      }
+    },
+    {
+      "name": "Get All Notes",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8081/api/notes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "notes"]
+        }
+      }
+    },
+    {
+      "name": "Get Note by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8081/api/notes/{{noteId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Note",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": {\n    \"noteTitle\": \"Updated Note Title\",\n    \"noteDescription\": \"This was updated\",\n    \"priority\": \"MEDIUM\",\n    \"dateUpdated\": \"07/Oct/2025\"\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/notes/{{noteId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Note",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8081/api/notes/{{noteId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "noteId",
+      "value": "PUT_NOTE_ID_HERE"
+    }
+  ]
+}
